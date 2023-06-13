@@ -8,7 +8,7 @@ import 'configs/app.dart';
 void main() {
   runApp(const MyApp());
 
-  ApiService apiService = HttpApiService();
-  // ApiService apiService = DioApiService();
+  // ApiService apiService = HttpApiService();
+  ApiService apiService = DioApiService();
 }
 

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:list_crud_firebase/services/api_service/api_response.dart';
 import 'package:list_crud_firebase/services/api_service/api_service.dart';
+import 'package:list_crud_firebase/services/api_service/dio_api_service.dart';
 import 'package:list_crud_firebase/services/api_service/http_api_service.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,9 +21,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
-            ApiService httpApiService = HttpApiService();
-            final ApiResponse response = await httpApiService.get("/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc'");
-            log(response.body);
+            ApiService dioApiService = DioApiService();
+            final ApiResponse response = await dioApiService.get("/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc'");
+            log(response.body.toString());
             log(response.statusCode.toString());
           }, 
           child: const Text("chamada de api")
