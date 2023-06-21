@@ -13,8 +13,10 @@ class HttpApiService implements ApiService{
   Future<ApiResponse> get(String path) async {
     
     final apiResponse = await http.get(Uri.parse(_url + path), headers: {"Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NzhjYWUwOWFhY2VlNDA5NWRhYjNmODhlOWUyZWQ0OSIsInN1YiI6IjY0N2YzZWJkOTM4MjhlMDBiZmEwMTJhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.R0wh_xeU0qHtIvlc4Yo-BtsMKw1h9l6QxV7t8o6k_Rc"});
-    log(apiResponse.body.toString());
+    // log(apiResponse.body.toString());
     final jsonApiResponse = jsonDecode(apiResponse.body);
+
+    log('HTTP');
 
     return ApiResponse(body: jsonApiResponse, statusCode: apiResponse.statusCode);
     

@@ -1,28 +1,24 @@
 import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:list_crud_firebase/services/api_service/api_response.dart';
+import 'package:get_it/get_it.dart';
 import 'package:list_crud_firebase/services/api_service/api_service.dart';
-import 'package:list_crud_firebase/services/api_service/dio_api_service.dart';
-import 'package:list_crud_firebase/services/api_service/http_api_service.dart';
 
-class HomePage extends StatelessWidget {
+import '../services/api_service/api_response.dart';
 
+class TestHome extends StatelessWidget {
+  
   final ApiService apiService;
 
-  const HomePage({super.key, required this.apiService});
+  const TestHome({super.key, required this.apiService});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TopCorn'),
+        title: const Text('Teste'),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: () {
-            Navigator.of(context).pushNamed('/test');
-          }, 
-          icon: const Icon(Icons.arrow_forward))
-        ],
       ),
       body: Center(
         child: ElevatedButton(
@@ -31,8 +27,7 @@ class HomePage extends StatelessWidget {
             log(response.body.toString());
             log(response.statusCode.toString());
           }, 
-          child: const Text("chamada de api")
-        ),
+          child: const Text('Chamada de API')),
       ),
     );
   }
